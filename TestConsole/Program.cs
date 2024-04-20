@@ -1,8 +1,8 @@
-﻿namespace TestConsole
+namespace TestConsole
 {
     internal class Program
     {
-       static void Main(string[] args)
+        static void Main(string[] args)
         {
             try
             {
@@ -14,7 +14,7 @@
                     throw new ArgumentException("Введено неверное значение для числа 1");
                 }
                 double FirstNumber;
-                if (!double.TryParse(input1, out FirstNumber))
+                if (!double.TryParse(input1, out FirstNumber) || FirstNumber <= 0)
                 {
                     throw new ArgumentException("Введено неверное значение для числа 1");
                 }
@@ -25,11 +25,11 @@
                     throw new ArgumentException("Введено неверное значение для числа 2");
                 }
                 double SecondNumber;
-                if (!double.TryParse(input2, out SecondNumber))
+                if (!double.TryParse(input2, out SecondNumber) || SecondNumber <= 0)
                 {
                     throw new ArgumentException("Введено неверное значение для числа 2");
                 }
-               TestInput("первое число ", FirstNumber);
+                TestInput("первое число ", FirstNumber);
                 TestInput("второе число ", SecondNumber);
                 Console.WriteLine("Матрица чисел: " + FirstNumber + " " + SecondNumber);
                 for (int i = 1; i <= FirstNumber; i++)
@@ -66,5 +66,8 @@
             return true;
         }
     }
-    }
 }
+
+ 
+
+
