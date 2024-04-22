@@ -21,5 +21,36 @@ namespace TestP
             }
 
         }
+         [TestMethod]
+        public void TestInvalidInputString()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                using (StringReader sr = new StringReader("abc\n4\n"))
+                {
+                    Console.SetOut(sw);
+                    Console.SetIn(sr);
+                    Program.Main(null);
+                }
+                string expected = "Введено неверное значение для числа 1";
+                Assert.AreEqual(expected, sw.ToString());
+            }
+
+        }
+        [TestMethod]
+        public void TestInvalidInputNegativeNumber()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                using (StringReader sr = new StringReader("-3\n4\n"))
+                {
+                    Console.SetOut(sw);
+                    Console.SetIn(sr);
+                    Program.Main(null);
+                }
+                string expected = "Введено неверное значение для числа 1";
+                Assert.AreEqual(expected, sw.ToString());
+            }
+        }
     }
 }
